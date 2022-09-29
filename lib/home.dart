@@ -88,7 +88,12 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(onPressed: () async {
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: _changeTheme ? Colors.white : ColorsTheme.primaryColor,
+        child: Icon(
+          _changeTheme ? Icons.light_mode : Icons.dark_mode,
+        ),
+        onPressed: () async {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setBool('theme', !_changeTheme);
         setState(() {

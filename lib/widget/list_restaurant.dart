@@ -38,8 +38,8 @@ class ListRestaurant extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: Color.fromRGBO(211, 209, 216, 0.35),
-                offset: Offset(15, 15),
-                blurRadius: 30,
+                offset: Offset(0, 10),
+                blurRadius: 5,
               ),
             ],
           ),

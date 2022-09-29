@@ -120,6 +120,9 @@ class _RestaurantsAllState extends State<RestaurantsAll> {
                       onChanged: (value) => searchRestaurants(value),
                       textInputAction: TextInputAction.search,
                       keyboardType: TextInputType.text,
+                      style: TextStyle(
+                        color: ColorsTheme.secundaryTextColor,
+                      ),
                       decoration: InputDecoration(
                         filled: true,
                         fillColor: Colors.white,

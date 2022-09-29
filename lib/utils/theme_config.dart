@@ -12,7 +12,7 @@ class ThemeConfig {
 
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
-    textTheme: TypographyStyle.ligthTexThme,
+    textTheme: TypographyStyle.darkTextTheme,
     primaryColor: Colors.white,
     scaffoldBackgroundColor: const Color.fromRGBO(9, 25, 69, 1),
   );

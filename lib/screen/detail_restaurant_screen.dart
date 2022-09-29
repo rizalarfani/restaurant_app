@@ -124,10 +124,7 @@ class _DetailRestaurantScreenState extends State<DetailRestaurantScreen>
                     const SizedBox(width: 5),
                     Text(
                       widget.restaurants?.rating.toString() ?? '',
-                      style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: Theme.of(context).textTheme.bodyText1,
                     )
                   ],
                 ),

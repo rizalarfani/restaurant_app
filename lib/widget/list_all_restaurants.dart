@@ -29,6 +29,7 @@ class ListAllRestaurants extends StatelessWidget {
           horizontal: 25,
         ),
         child: Container(
+          margin: const EdgeInsets.only(bottom: 15),
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             color: Colors.white,
@@ -167,7 +168,7 @@ class ListAllRestaurants extends StatelessWidget {
                     const SizedBox(height: 20),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),

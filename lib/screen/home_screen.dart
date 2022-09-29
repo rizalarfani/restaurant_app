@@ -208,12 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     'Populer Restautants',
-                    style: TextStyle(
-                      fontFamily: 'sofiapro',
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
-                      color: ColorsTheme.primaryTextColor,
-                    ),
+                    style: Theme.of(context).textTheme.subtitle2,
                   ),
                   TextButton(
                     onPressed: () {
