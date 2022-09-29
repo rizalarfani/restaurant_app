@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_app/home.dart';
 import 'package:restaurant_app/utils/theme_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  final prefs = await SharedPreferences.getInstance();
+  runApp(MyApp(
+    themeState: prefs.getBool('theme'),
+  ));
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  final bool? themeState;
+  const MyApp({Key? key, this.themeState}) : super(key: key);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -17,7 +22,13 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  ThemeData _themeData = ThemeConfig.lightTheme;
+  late ThemeData _themeData;
+
+  @override
+  void initState() {
+    _themeData = widget.themeState == null ? ThemeConfig.lightTheme : ThemeConfig.darkTheme;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
