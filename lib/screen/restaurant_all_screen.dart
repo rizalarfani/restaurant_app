@@ -14,7 +14,8 @@ class RestaurantsAll extends StatefulWidget {
 }
 
 class _RestaurantsAllState extends State<RestaurantsAll> {
-  late List<Restaurants> allRestaurants;
+  List<Restaurants>? allRestaurants;
+  bool _isLoading = false;
   late TextEditingController searchControler;
   Future<void> getAllRestaurants() async {
     final assetBundle = DefaultAssetBundle.of(context);
@@ -23,6 +24,7 @@ class _RestaurantsAllState extends State<RestaurantsAll> {
     final body = jsonDecode(json);
     final List parsed = body['restaurants'];
     setState(() {
+      _isLoading = !_isLoading;
       allRestaurants =
           parsed.map((json) => Restaurants.fromJson(json)).toList();
     });
@@ -38,7 +40,7 @@ class _RestaurantsAllState extends State<RestaurantsAll> {
       final List parsed = body['restaurants'];
       results = parsed.map((json) => Restaurants.fromJson(json)).toList();
     } else {
-      results = allRestaurants
+      results = allRestaurants!
           .where((restaurant) =>
               restaurant.name!.toLowerCase().contains(value.toLowerCase()))
           .toList();
@@ -164,19 +166,25 @@ class _RestaurantsAllState extends State<RestaurantsAll> {
             ),
             const SizedBox(height: 20),
             Expanded(
-              child: allRestaurants.isNotEmpty
-                  ? ListView.builder(
-                      itemCount: allRestaurants.length,
-                      scrollDirection: Axis.vertical,
-                      itemBuilder: (context, index) => ListAllRestaurants(
-                        restaurant: allRestaurants[index],
-                      ),
-                    )
-                  : Center(
-                      child: Text(
-                        'Restaurant not found',
-                        style: Theme.of(context).textTheme.caption,
-                      ),
+              child: _isLoading
+                  ? allRestaurants!.isNotEmpty
+                      ? ListView.builder(
+                          itemCount: allRestaurants == null
+                              ? 0
+                              : allRestaurants!.length,
+                          scrollDirection: Axis.vertical,
+                          itemBuilder: (context, index) => ListAllRestaurants(
+                            restaurant: allRestaurants![index],
+                          ),
+                        )
+                      : Center(
+                          child: Text(
+                            'Restaurant not found',
+                            style: Theme.of(context).textTheme.caption,
+                          ),
+                        )
+                  : const Center(
+                      child: CircularProgressIndicator(),
                     ),
             ),
           ],

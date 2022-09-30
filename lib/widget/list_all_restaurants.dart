@@ -54,14 +54,11 @@ class ListAllRestaurants extends StatelessWidget {
                       topRight: Radius.circular(15),
                       topLeft: Radius.circular(15),
                     ),
-                    child: Hero(
-                      tag: 'home',
-                      child: Image.network(
-                        restaurant!.pictureId!,
-                        fit: BoxFit.cover,
-                        height: 228,
-                        width: double.infinity,
-                      ),
+                    child: Image.network(
+                      restaurant!.pictureId!,
+                      fit: BoxFit.cover,
+                      height: 228,
+                      width: double.infinity,
                     ),
                   ),
                   Container(

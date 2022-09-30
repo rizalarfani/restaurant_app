@@ -51,13 +51,10 @@ class _DetailRestaurantScreenState extends State<DetailRestaurantScreen>
                       borderRadius: const BorderRadius.all(
                         Radius.circular(10),
                       ),
-                      child: Hero(
-                        tag: 'home',
-                        child: Image.network(
-                          widget.restaurants?.pictureId ?? '',
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                        ),
+                      child: Image.network(
+                        widget.restaurants?.pictureId ?? '',
+                        fit: BoxFit.cover,
+                        width: double.infinity,
                       ),
                     ),
                     Container(
