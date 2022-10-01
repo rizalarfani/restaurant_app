@@ -164,12 +164,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: SvgPicture.asset(
-                      'assets/icons/filter.svg',
-                      height: 25,
-                      width: 25,
+                  Expanded(
+                    child: IconButton(
+                      onPressed: () {},
+                      icon: SvgPicture.asset(
+                        'assets/icons/filter.svg',
+                        height: 25,
+                        width: 25,
+                      ),
                     ),
                   ),
                 ],
@@ -250,6 +252,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
               ),
             ),
+            const SizedBox(height: 25),
           ],
         ),
       ),

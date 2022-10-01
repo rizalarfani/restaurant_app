@@ -26,7 +26,9 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void initState() {
-    _themeData = widget.themeState == null ? ThemeConfig.lightTheme : ThemeConfig.darkTheme;
+    _themeData = widget.themeState == null
+        ? ThemeConfig.lightTheme
+        : ThemeConfig.darkTheme;
     super.initState();
   }
 
